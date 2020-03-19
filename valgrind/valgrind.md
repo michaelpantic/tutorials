@@ -15,7 +15,7 @@ sudo apt install valgrind kcachegrind wget
 
 ## The demo program
 We need some code to profile. 
-[Here](./res/profile_example.cc) you can find a simple demo program that stores the favourite food for a person given a name.
+[Here](https://github.com/michaelpantic/tutorials/blob/master/valgrind/res/profile_example.cc) you can find a simple demo program that stores the favourite food for a person given a name.
 Please familiarize yourself with the source code.
 Essentially, it generates a large list of people and assigns a favourite food. 
 To do so, there are two different implementations (A and B) that are run simultaneously.

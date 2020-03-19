@@ -4,10 +4,15 @@
 #include <vector>
 #include <map>
 
+/*
+ * Implementation A of a simple database.
+ * Uses a vector with pair of strings for storage.
+ */
 class DataBaseA {
  public:
   typedef std::pair<std::string, std::string> StringPair;
 
+  // Insert a new entry
   void insert(const std::string &name, const std::string &food) {
     // only add new value if there is no value with that name.
     if (lookup(name).empty()) {
@@ -15,6 +20,7 @@ class DataBaseA {
     }
   }
 
+  // Get value for an entry. returns empty string if entry does nto exist.
   std::string lookup(const std::string &name) {
     // go through list and return value if it name exists
     for (const StringPair &value : data_) {
@@ -27,10 +33,14 @@ class DataBaseA {
   }
 
  private:
+  // Storage for data.
   std::vector<StringPair> data_;
 
 };
 
+/*
+ * Implementation B that uses a std::map for the same requirements.
+ */
 class DataBaseB {
  public:
 
@@ -42,7 +52,6 @@ class DataBaseB {
   }
 
   std::string lookup(const std::string &name) {
-
     // if name is not found, return empty string
     if (data_.find(name) == data_.end()) {
       return {};
@@ -50,9 +59,9 @@ class DataBaseB {
       //otherwise return value
       return data_[name];
     }
-
   }
 
+ private:
   std::map<std::string, std::string> data_;
 };
 
@@ -68,8 +77,6 @@ int main(int argc, char *argv[]) {
    *  A is a naive implementation using a vector with string/string pairs.
    *
    *  B uses the map provided by the standard library.
-   *
-   *
    */
 
   // set up both implementations
